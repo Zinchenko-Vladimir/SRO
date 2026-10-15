@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контроль качества пищевой продукции</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Контроль качества пищевой продукции</h1>
+  <p class="sub">Введите измерение — программа сравнит его с допустимым диапазоном и покажет отклонения.</p>
+
+  <div class="grid">
+    <section class="panel" aria-labelledby="h-form">
+      <h2 id="h-form">Новое измерение</h2>
+      <label for="batch">Номер партии</label>
+      <input id="batch" autocomplete="off" placeholder="например, M-2026-01" maxlength="30">
+      <label for="product">Продукт</label>
+      <select id="product"></select>
+      <label for="indicator">Показатель</label>
+      <select id="indicator"></select>
+      <div class="hint" id="normHint"></div>
+      <label for="value">Значение</label>
+      <input id="value" inputmode="decimal" autocomplete="off" placeholder="например, 4,5">
+      <div class="row">
+        <button class="btn" id="add">Записать измерение</button>
+      </div>
+      <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    </section>
+
+    <section aria-label="Результаты">
+      <div class="stats" id="stats"></div>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-tab="log" aria-selected="true">Журнал</button>
+        <button class="tab" role="tab" data-tab="report" aria-selected="false">Отклонения</button>
+        <button class="tab" role="tab" data-tab="norms" aria-selected="false">Нормы</button>
+        <button class="tab" role="tab" data-tab="tests" aria-selected="false">Тесты</button>
+      </div>
+      <div class="panel" id="view"></div>
+    </section>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
